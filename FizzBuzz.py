@@ -1,9 +1,19 @@
-class Item:
-    def __init__(self, age: int):
-        self.age = age
+def gradingStudents(grades):
+    roundedGrades = []
+    for grade in grades:
+        if grade < 39:
+            roundedGrades.append(grade)
+        else:
+            for i in range(0, 100, 5):
+                difference = i - grade
+                if 0 < difference < 3:
+                    roundedGrades.append(grade + difference)
+                else:
+                    roundedGrades.append(grade)
 
-    def birthYear(self) -> int:
-        return 2023 - self.age
+    return roundedGrades + "hi there"
 
-item1 = Item('21')
-print(item1.birthYear())
+
+grades = [4, 73, 67, 38, 33]
+gradingStudents(grades)
+
